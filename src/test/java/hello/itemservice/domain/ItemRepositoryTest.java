@@ -15,10 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class ItemRepositoryTest {
-
     @Autowired
     ItemRepository itemRepository;
-
     @AfterEach
     void afterEach() {
         //MemoryItemRepository 의 경우 제한적으로 사용
@@ -26,7 +24,6 @@ class ItemRepositoryTest {
             ((MemoryItemRepository) itemRepository).clearStore();
         }
     }
-
     @Test
     void save() {
         //given
@@ -39,7 +36,6 @@ class ItemRepositoryTest {
         Item findItem = itemRepository.findById(item.getId()).get();
         assertThat(findItem).isEqualTo(savedItem);
     }
-
     @Test
     void updateItem() {
         //given
@@ -57,7 +53,6 @@ class ItemRepositoryTest {
         assertThat(findItem.getPrice()).isEqualTo(updateParam.getPrice());
         assertThat(findItem.getQuantity()).isEqualTo(updateParam.getQuantity());
     }
-
     @Test
     void findItems() {
         //given
@@ -84,7 +79,6 @@ class ItemRepositoryTest {
         //둘 다 있음 검증
         test("itemA", 10000, item1);
     }
-
     void test(String itemName, Integer maxPrice, Item... items) {
         List<Item> result = itemRepository.findAll(new ItemSearchCond(itemName, maxPrice));
         assertThat(result).containsExactly(items);
