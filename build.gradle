@@ -23,9 +23,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	//JdbcTemplate 추가
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	//Mybatis 추가 (스프링에서 버전관리를 안해주는것은 버전을 써줘야한다.)
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	//JPA, 스프링 데이터 JPA 추가 (이걸 추가하면 starter-jdbc는 없어도 된다. 포함되어있다.)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	//H2 데이터베이스 추가
 	runtimeOnly 'com.h2database:h2'
 
