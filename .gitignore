@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### QueryDSL QItem ###
+src/main/generated/hello/itemservice/domain/QItem.java
